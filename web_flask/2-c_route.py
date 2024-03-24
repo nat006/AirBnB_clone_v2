@@ -6,7 +6,7 @@ This module starts a Flask web application that listens on 0.0.0.0, port 5000
 from flask import Flask
 from re import sub
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
@@ -30,5 +30,5 @@ def c_text(text):
     text = sub('_', ' ', text)
     return 'C {}'.format(text)
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
